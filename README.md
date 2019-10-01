@@ -15,7 +15,7 @@ Launch Mongo DB
 
 Install gradle
 -
-- 'brew install gradle'
+- `brew install gradle`
 
 
 Start service

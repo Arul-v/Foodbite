@@ -3,8 +3,6 @@ package com.foodbite.grabfood.dal;
 import com.foodbite.grabfood.model.Hotels;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -23,7 +21,6 @@ public class HotelsDALImpl implements HotelsDAL {
 	@Override
 	public Hotels addHotel(Hotels hotel) {
 		mongoTemplate.save(hotel);
-		// Now, user object will contain the ID as well
 		return hotel;
 	}
 }
