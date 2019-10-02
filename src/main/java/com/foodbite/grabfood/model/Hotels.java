@@ -3,6 +3,8 @@ package com.foodbite.grabfood.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 
 @Document
 public class Hotels {
@@ -10,6 +12,7 @@ public class Hotels {
 	@Id
 	private String hotelId;
 	private String name;
+	private List items;
 
 	public String getHotelId() {
 		return hotelId;
@@ -27,4 +30,11 @@ public class Hotels {
 		this.name = name;
 	}
 
+	public List getItems() {
+		return items;
+	}
+
+	public void setItems(List items) {
+		this.items = items;
+	}
 }

@@ -7,6 +7,6 @@ import java.util.List;
 public interface HotelsDAL {
 
 	List<Hotels> getAllHotels();
-	Hotels addHotel(Hotels hotel);
+	Hotels addHotel(Hotels hotel) throws Exception;
 
 }

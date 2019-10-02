@@ -51,6 +51,11 @@ public class HotelsController {
 			throw new ResponseStatusException(
 				HttpStatus.CONFLICT, e.getMessage());
 		}
+		catch (Exception e)
+		{
+			throw new ResponseStatusException(
+					HttpStatus.BAD_REQUEST, e.getMessage());
+		}
 
 	}
 }
