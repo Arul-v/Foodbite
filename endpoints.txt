@@ -3,7 +3,21 @@ POST : http://localhost:8102/createHotel
 body:
 {
   "hotelId" : 1,
-  "name" : "test"
+  "name" : "test1",
+  "items" :[
+  	{
+  	"id" : "1",
+    "itemName" : "dosa",
+    "quantity" : "200",
+    "price" : 100
+  },
+  {
+  	"id" : "2",
+    "itemName" : "idly",
+    "quantity" : "200",
+    "price" : 50
+  }
+  ]
 }
 
 GET: http://localhost:8102/getHotels
