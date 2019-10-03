@@ -15,7 +15,6 @@ apply plugin: 'war'
 apply plugin: 'idea'
 apply plugin: "org.springframework.boot"
 
-
 sourceCompatibility = 1.8
 
 repositories {
@@ -30,5 +29,10 @@ dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb', version: '2.1.8.RELEASE'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.1.8.RELEASE'
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.1.8.RELEASE'
+    testCompile group: 'org.testng', name: 'testng', version: '7.0.0'
+    testCompile group: 'io.rest-assured', name: 'rest-assured', version: '3.0.0'
+    testCompile group: 'org.hamcrest', name: 'hamcrest-library', version: '2.1'
+
 
 }
+

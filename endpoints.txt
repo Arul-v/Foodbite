@@ -21,3 +21,59 @@ body:
 }
 
 GET: http://localhost:8102/getHotels
+
+response:
+[
+    {
+        "hotelId": "1",
+        "name": "test1",
+        "items": [
+            {
+                "id": "1",
+                "itemName": "dosa",
+                "quantity": "200",
+                "price": 100
+            },
+            {
+                "id": "2",
+                "itemName": "idly",
+                "quantity": "200",
+                "price": 50
+            }
+        ]
+    },
+    {
+        "hotelId": "2",
+        "name": "test2",
+        "items": [
+            {
+                "id": "1",
+                "itemName": "dosa",
+                "quantity": "200",
+                "price": 100
+            },
+            {
+                "id": "2",
+                "itemName": "idly",
+                "quantity": "200",
+                "price": 50
+            }
+        ]
+    }
+]
+
+
+POST: http://localhost:8102/createUser
+
+body:
+{
+  "username" : "test1256",
+  "email" : "test4564@gmail.com",
+  "password": "test@",
+  "phone": 9003388295
+}
+
+POST: http://localhost:8102/login
+
+body: (raw -text)
+test125:test@
