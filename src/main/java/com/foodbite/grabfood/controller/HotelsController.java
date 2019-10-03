@@ -34,7 +34,6 @@ public class HotelsController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/getHotels", method = RequestMethod.GET)
 	public List<Hotels> getAllHotels() {
-		LOG.info("Getting all hotels.");
 		return hotelsRepository.findAll();
 	}
 

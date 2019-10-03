@@ -12,6 +12,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping(value = "/")
 public class UsersController {
@@ -52,10 +55,9 @@ public class UsersController {
 
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(@RequestBody String creds) {
+	public HashMap<String, String> login(@RequestBody Map<String, String> credentials) {
 		try {
-			String[] credentials = creds.split(":");
-			return usersDALImpl.login(credentials[0], credentials[1]);
+			return usersDALImpl.login(credentials.get("username"), credentials.get("password"));
 		}
 		catch (Exception e) {
 			throw new ResponseStatusException(HttpStatus.FORBIDDEN, e.getMessage());
