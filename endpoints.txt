@@ -67,13 +67,18 @@ POST: http://localhost:8102/createUser
 
 body:
 {
-  "username" : "test1256",
-  "email" : "test4564@gmail.com",
+  "firstname" : "gowtham",
+  "lastname" : "raj",
+  "email" : "gowtham@gmail.com",
   "password": "test@",
   "phone": 9003388295
 }
 
 POST: http://localhost:8102/login
 
-body: (raw -text)
-test125:test@
+body:
+{
+	"username" : "gowthamraj@gmail.com",
+	"password" : "test@"
+}
+
