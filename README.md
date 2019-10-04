@@ -28,3 +28,10 @@ Start service
 APIS
 -
 Refer endpoints.txt
+
+
+Start service
+-
+
+- `gradle test --tests FoodbiteApiTests` or
+- `gradle test --tests FoodbiteApiTests --info`
