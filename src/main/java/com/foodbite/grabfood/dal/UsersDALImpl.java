@@ -95,11 +95,8 @@ public class UsersDALImpl implements UsersDAL {
 		emailQuery.addCriteria(Criteria.where("email").is(username));
 		Users user1 = mongoTemplate.findOne(emailQuery, Users.class);
 		HashMap<String, String> map = new HashMap<>();
-
 		map.put("token", user1.getToken());
-//		JSONObject jsonString = new JSONObject()
-//				.put("token", user1.getToken().toString());
-//		System.out.println(jsonString);
+		map.put("username", user1.getFirstname());
 		return map;
 	}
 }

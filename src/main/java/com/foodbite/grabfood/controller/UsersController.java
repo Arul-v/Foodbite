@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import java.util.HashMap;
@@ -35,11 +36,11 @@ public class UsersController {
 
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(value = "/createUser", method = RequestMethod.POST)
-	public String adduser(@RequestBody Users user) {
+	public Users adduser(@RequestBody Users user) {
 		try
 		{
 			usersDALImpl.addUser(user);
-			return Messages.successfullyAddedInDBMessage;
+			return user;
 		}
 		catch (DataIntegrityViolationException e)
 		{
