@@ -15,7 +15,7 @@ public class Users {
 	private String lastname;
 	@Email
 	private String email;
-	private double phone;
+	private String phone;
 	private String password;
 	private String token="";
 
@@ -68,11 +68,11 @@ public class Users {
 		this.email = email;
 	}
 
-	public double getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(double phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
