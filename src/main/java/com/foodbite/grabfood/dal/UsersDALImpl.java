@@ -99,4 +99,13 @@ public class UsersDALImpl implements UsersDAL {
 		map.put("username", user1.getFirstname());
 		return map;
 	}
+
+	public Users getUserWithToken(String token) throws Exception{
+		Query emailQuery = new Query();
+		emailQuery.addCriteria(Criteria.where("token").is(token));
+		Users user =  mongoTemplate.findOne(emailQuery, Users.class);
+		if(user == null)
+			throw new Exception("Cant find user with the token!");
+		return user;
+	}
 }

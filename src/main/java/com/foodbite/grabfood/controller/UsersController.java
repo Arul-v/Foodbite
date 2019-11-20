@@ -9,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import java.util.HashMap;
@@ -23,14 +22,9 @@ public class UsersController {
 
 	private final Logger LOG = LoggerFactory.getLogger(getClass());
 
-	private final UsersRepository usersRepository;
-
-	private final UsersDAL usersDAL;
 	private final UsersDALImpl usersDALImpl;
 
-	public UsersController(UsersRepository usersRepository, UsersDAL usersDAL, UsersDALImpl usersDALImpl) {
-		this.usersRepository = usersRepository;
-		this.usersDAL = usersDAL;
+	public UsersController(UsersDALImpl usersDALImpl) {
 		this.usersDALImpl = usersDALImpl;
 	}
 
