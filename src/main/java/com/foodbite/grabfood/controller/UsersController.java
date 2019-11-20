@@ -3,7 +3,6 @@ package com.foodbite.grabfood.controller;
 import com.foodbite.grabfood.dal.UsersDAL;
 import com.foodbite.grabfood.dal.UsersDALImpl;
 import com.foodbite.grabfood.dal.UsersRepository;
-import com.foodbite.grabfood.messages.Messages;
 import com.foodbite.grabfood.model.Users;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,6 +33,7 @@ public class UsersController {
 		try
 		{
 			usersDALImpl.addUser(user);
+
 			return user;
 		}
 		catch (DataIntegrityViolationException e)
@@ -54,6 +54,18 @@ public class UsersController {
 	public HashMap<String, String> login(@RequestBody Map<String, String> credentials) {
 		try {
 			return usersDALImpl.login(credentials.get("username"), credentials.get("password"));
+		}
+		catch (Exception e) {
+			throw new ResponseStatusException(HttpStatus.FORBIDDEN, e.getMessage());
+		}
+	}
+
+
+	@ResponseStatus(HttpStatus.CREATED)
+	@RequestMapping(value = "/getImage", method = RequestMethod.GET)
+			public void getImage(@RequestBody Map<String, String> credentials) {
+		try {
+			usersDALImpl.getImage(credentials.get("username"));
 		}
 		catch (Exception e) {
 			throw new ResponseStatusException(HttpStatus.FORBIDDEN, e.getMessage());

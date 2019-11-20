@@ -1,9 +1,11 @@
 package com.foodbite.grabfood.model;
 
+import org.bson.types.Binary;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.Email;
+import java.io.File;
 
 
 @Document
@@ -18,6 +20,7 @@ public class Users {
 	private String phone;
 	private String password;
 	private String token="";
+    private File Image;
 
 	public String getUserId() {
 		return userId;
