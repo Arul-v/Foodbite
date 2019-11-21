@@ -9,13 +9,16 @@ import com.mongodb.MongoException;
 import com.mongodb.gridfs.GridFS;
 import com.mongodb.gridfs.GridFSDBFile;
 import com.mongodb.gridfs.GridFSInputFile;
+import org.apache.tomcat.util.http.parser.MediaType;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -157,13 +160,23 @@ public class UsersDALImpl implements UsersDAL {
 
 	}
 
-	public void getImage(String email) {
+	public ResponseEntity<InputStreamResource> getImage(String email) {
 		Mongo mongo = new Mongo("localhost", 27017);
 		DB db = mongo.getDB("foodbite");
 
 		GridFS gfsPhoto = new GridFS(db, "photo");
 		GridFSDBFile imageForOutput = gfsPhoto.findOne(email);
+
 		System.out.println(email);
+//		try {
+//			imageForOutput.writeTo("/Users/Vijayaragavan/test/Foodbite/DemoImageNew.png");
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 		System.out.println(imageForOutput);
+
+		return ResponseEntity.ok()
+				.contentLength(imageForOutput.getLength())
+				.body(new InputStreamResource(imageForOutput.getInputStream()));
 	}
 }
