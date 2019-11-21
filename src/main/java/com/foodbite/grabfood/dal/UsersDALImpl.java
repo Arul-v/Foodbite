@@ -17,6 +17,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
@@ -129,7 +130,7 @@ public class UsersDALImpl implements UsersDAL {
 
 			String newFileName = "testImage2";
 
-			File imageFile = new File("/Users/Vijayaragavan/test/Foodbite/src/main/resources/Image1.png");
+			File imageFile = new File("/Users/gowthamr/Documents/Intellij/Foodbite/src/main/resources/Image1.png");
 
 			// create a "photo" namespace
 			GridFS gfsPhoto = new GridFS(db, "photo");

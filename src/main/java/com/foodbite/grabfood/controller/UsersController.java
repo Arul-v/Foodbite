@@ -1,5 +1,6 @@
 package com.foodbite.grabfood.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.foodbite.grabfood.dal.UsersDAL;
 import com.foodbite.grabfood.dal.UsersDALImpl;
 import com.foodbite.grabfood.dal.UsersRepository;
@@ -9,9 +10,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 import java.util.HashMap;
 import java.util.Map;
+import java.io.InputStream;
 
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -29,10 +32,14 @@ public class UsersController {
 
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(value = "/createUser", method = RequestMethod.POST)
-	public Users adduser(@RequestBody Users user) {
+	public Users adduser(@RequestPart("payload") String userpayload, @RequestPart("image") MultipartFile image) {
 		try
 		{
+			Users user = new ObjectMapper().readValue(userpayload, Users.class);
 			usersDALImpl.addUser(user);
+			// InputStream in = image.getInputStream();
+			System.out.println(image.getOriginalFilename());
+			
 
 			return user;
 		}

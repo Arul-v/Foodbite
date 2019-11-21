@@ -15,8 +15,7 @@ public class DataHotels
         Mongo mongo = new Mongo("localhost", 27017);
         DB db = mongo.getDB("foodbite");
         
-        DBCollection collection = db.getCollection("hotels");
-    
+        DBCollection collection = db.getCollection("hotels");    
 			
         System.out.println("BasicDBObject example...");
 

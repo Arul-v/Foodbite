@@ -3,6 +3,7 @@ package com.foodbite.grabfood.model;
 import org.bson.types.Binary;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.Email;
 import java.io.File;
@@ -20,7 +21,7 @@ public class Users {
 	private String phone;
 	private String password;
 	private String token="";
-    private File Image;
+	private MultipartFile image;
 
 	public String getUserId() {
 		return userId;
@@ -85,6 +86,14 @@ public class Users {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public MultipartFile getImage() {
+		return image;
+	}
+
+	public void setImage(MultipartFile image) {
+		this.image = image;
 	}
 }
 
