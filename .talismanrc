@@ -9,4 +9,7 @@ fileignoreconfig:
 - filename: src/main/java/com/foodbite/grabfood/dal/UsersDALImpl.java
   checksum: d0010f080a9966613252d1f90fce8cb4171e1de421de1c3dce4442b2a2faf1ce
   ignore_detectors: []
+- filename: src/main/java/com/foodbite/grabfood/dal/UsersDALImpl.java
+  checksum: 41cf064ab382f415bd728bd8cec191805a69fa0b836ce3c0183077346a1259a0
+  ignore_detectors: []
 
