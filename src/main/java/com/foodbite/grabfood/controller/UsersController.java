@@ -38,7 +38,7 @@ public class UsersController {
 		try
 		{
 			Users user = new ObjectMapper().readValue(userpayload, Users.class);
-			usersDALImpl.addUser(user);
+			usersDALImpl.addUser(user, image);
 			// InputStream in = image.getInputStream();
 			System.out.println(image.getOriginalFilename());
 			

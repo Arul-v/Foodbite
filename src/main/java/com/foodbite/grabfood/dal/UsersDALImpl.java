@@ -36,10 +36,10 @@ public class UsersDALImpl implements UsersDAL {
 	private MongoTemplate mongoTemplate;
 
 	@Override
-	public Users addUser(Users user) throws Exception {
+	public Users addUser(Users user, MultipartFile image) throws Exception {
 		if (validateEmailExists(user)) {
 			mongoTemplate.save(user);
-			uploadImage(user.getEmail());
+			uploadImage(user.getEmail(), image);
 			return user;
 		}
 		else
@@ -123,32 +123,24 @@ public class UsersDALImpl implements UsersDAL {
 			throw new Exception("Cant find user with the token!");
 		return user;
 	}
-	public void uploadImage(String email) {
+	public void uploadImage(String email, MultipartFile image) {
 
 		try {
 			Mongo mongo = new Mongo("localhost", 27017);
 			DB db = mongo.getDB("foodbite");
 			DBCollection collection = db.getCollection("users");
 
-
-			String newFileName = "testImage2";
-
-			File imageFile = new File("/Users/gowthamr/Documents/Intellij/Foodbite/src/main/resources/Image1.png");
-
 			// create a "photo" namespace
 			GridFS gfsPhoto = new GridFS(db, "photo");
 
 			// get image file from local drive
-			GridFSInputFile gfsFile = gfsPhoto.createFile(imageFile);
-
-			// set a new filename for identify purpose
+			GridFSInputFile gfsFile = gfsPhoto.createFile(image.getBytes());
 
 			gfsFile.setId(email);
 			gfsFile.setFilename(email);
 
 			// save the image file into mongoDB
 			gfsFile.save();
-
 
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
