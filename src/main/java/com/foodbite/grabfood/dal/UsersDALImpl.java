@@ -140,7 +140,7 @@ public class UsersDALImpl implements UsersDAL {
 			// set a new filename for identify purpose
 
 			gfsFile.setId(email);
-			gfsFile.setFilename(newFileName);
+			gfsFile.setFilename(email);
 
 			// save the image file into mongoDB
 			gfsFile.save();
