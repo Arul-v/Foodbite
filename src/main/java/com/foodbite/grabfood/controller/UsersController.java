@@ -72,9 +72,9 @@ public class UsersController {
 
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(value = "/getImage", method = RequestMethod.GET)
-			public ResponseEntity<InputStreamResource> getImage(@RequestBody Map<String, String> credentials) {
+			public ResponseEntity<InputStreamResource> getImage(@RequestParam("username")  String username) {
 		try {
-			return usersDALImpl.getImage(credentials.get("username"));
+			return usersDALImpl.getImage(username);
 
 		}
 		catch (Exception e) {

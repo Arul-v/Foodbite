@@ -9,7 +9,6 @@ import com.mongodb.MongoException;
 import com.mongodb.gridfs.GridFS;
 import com.mongodb.gridfs.GridFSDBFile;
 import com.mongodb.gridfs.GridFSInputFile;
-import org.apache.tomcat.util.http.parser.MediaType;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
@@ -18,6 +17,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
@@ -169,6 +169,7 @@ public class UsersDALImpl implements UsersDAL {
 
 		return ResponseEntity.ok()
 				.contentLength(imageForOutput.getLength())
+				.contentType(MediaType.APPLICATION_OCTET_STREAM)
 				.body(new InputStreamResource(imageForOutput.getInputStream()));
 	}
 }
