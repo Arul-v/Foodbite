@@ -112,6 +112,7 @@ public class UsersDALImpl implements UsersDAL {
 		HashMap<String, String> map = new HashMap<>();
 		map.put("token", user1.getToken());
 		map.put("username", user1.getFirstname());
+		map.put("email", user1.getEmail());
 		return map;
 	}
 
