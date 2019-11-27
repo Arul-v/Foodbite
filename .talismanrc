@@ -1,23 +1,4 @@
 fileignoreconfig:
-- filename: src/main/java/com/foodbite/grabfood/model/Users.java
-  checksum: 01a959ca1910e47e28983631a9bc6c37ea8aa48a2474e939aa17919bb4374918
-  ignore_detectors: []
-- filename: src/main/java/com/foodbite/grabfood/dal/UsersDALImpl.java
-  checksum: 7c2ba3b47decd3bee4c0620d301a66e4cf7056e52e821f40a18a94254e951302
-  ignore_detectors: []
-
-- filename: src/main/java/com/foodbite/grabfood/dal/UsersDALImpl.java
-  checksum: d0010f080a9966613252d1f90fce8cb4171e1de421de1c3dce4442b2a2faf1ce
-  ignore_detectors: []
-- filename: src/main/java/com/foodbite/grabfood/dal/UsersDALImpl.java
-  checksum: 41cf064ab382f415bd728bd8cec191805a69fa0b836ce3c0183077346a1259a0
-  ignore_detectors: []
-- filename: src/main/java/com/foodbite/grabfood/dal/UsersDALImpl.java
-    checksum: 7cb3e6e88ea3fcd145e214c2707f598a22782ba56c9c662bb6501ef03731749c
-    ignore_detectors: []
-- filename: src/main/java/com/foodbite/grabfood/model/Users.java
-    checksum: 71ff87747ac153f9f4d444fcc1d9af3febccc86cca491b58af9eb1f5a2282fa8
-    ignore_detectors: []
 - filename: src/main/java/com/foodbite/grabfood/dal/UsersDALImpl.java
   checksum: 7cb3e6e88ea3fcd145e214c2707f598a22782ba56c9c662bb6501ef03731749c
   ignore_detectors: []
