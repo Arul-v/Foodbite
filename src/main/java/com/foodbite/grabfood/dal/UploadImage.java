@@ -21,9 +21,9 @@ import org.springframework.stereotype.Repository;
 public class UploadImage {
 
 
-    Mongo mongo = new Mongo("localhost", 27017);
-    DB db = mongo.getDB("imagedb");
-    DBCollection collection = db.getCollection("dummyColl");
+//    Mongo mongo = new Mongo("localhost", 27017);
+//    DB db = mongo.getDB("imagedb");
+//    DBCollection collection = db.getCollection("dummyColl");
 
 //    public void upload() {
 //
@@ -62,25 +62,25 @@ public class UploadImage {
 
     public void saveImage()
     {
-        String newFileName = "mkyong-java-image";
-        File imageFile = new File("c:\\JavaWebHosting.png");
-        GridFS gfsPhoto;
-        gfsPhoto = new GridFS(db, "photo");
-        GridFSInputFile gfsFile = null;
-        try {
-            gfsFile = gfsPhoto.createFile(imageFile);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        gfsFile.setFilename(newFileName);
-        gfsFile.save();
+//        String newFileName = "mkyong-java-image";
+//        File imageFile = new File("c:\\JavaWebHosting.png");
+//        GridFS gfsPhoto;
+//        gfsPhoto = new GridFS(db, "photo");
+//        GridFSInputFile gfsFile = null;
+//        try {
+//            gfsFile = gfsPhoto.createFile(imageFile);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        gfsFile.setFilename(newFileName);
+//        gfsFile.save();
     }
 
     public void getImage()
     {
-        String newFileName = "mkyong-java-image";
-        GridFS gfsPhoto = new GridFS(db, "photo");
-        GridFSDBFile imageForOutput = gfsPhoto.findOne(newFileName);
-        System.out.println(imageForOutput);
+//        String newFileName = "mkyong-java-image";
+//        GridFS gfsPhoto = new GridFS(db, "photo");
+//        GridFSDBFile imageForOutput = gfsPhoto.findOne(newFileName);
+//        System.out.println(imageForOutput);
     }
 }

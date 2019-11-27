@@ -6,7 +6,6 @@ import com.foodbite.grabfood.dal.UsersDALImpl;
 import com.foodbite.grabfood.model.Users;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.core.io.InputStreamResource;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -71,7 +70,7 @@ public class UsersController {
 
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(value = "/getImage", method = RequestMethod.GET)
-			public ResponseEntity<InputStreamResource> getImage(@RequestParam("username")  String username) {
+			public ResponseEntity<byte[]> getImage(@RequestParam("username")  String username) {
 		try {
 			return usersDALImpl.getImage(username);
 
