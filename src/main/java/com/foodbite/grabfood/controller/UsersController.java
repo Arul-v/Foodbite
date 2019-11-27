@@ -2,7 +2,6 @@ package com.foodbite.grabfood.controller;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.foodbite.grabfood.dal.UsersDAL;
 import com.foodbite.grabfood.dal.UsersDALImpl;
 import com.foodbite.grabfood.model.Users;
 import org.slf4j.Logger;
@@ -14,12 +13,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
+
 import java.util.HashMap;
 import java.util.Map;
-import java.io.InputStream;
 
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(value = "/")
 public class UsersController {
